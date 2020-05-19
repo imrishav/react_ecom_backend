@@ -13,10 +13,23 @@ exports.createCategrories = async (req, res) => {
 };
 
 exports.getAllCategories = async (req, res) => {
-  const allCat = await Categories.find();
+  const allCat = await Categories.find().populate("category");
+
+  console.log(allCat);
 
   res.json({
     data: allCat,
+    messgaeg: "success",
+  });
+};
+
+exports.getCategoriesById = async (req, res) => {
+  console.log(req.params);
+  const cateogry = await Categories.findById(req.params.id).populate(
+    "category"
+  );
+  res.json({
+    data: cateogry,
     messgaeg: "success",
   });
 };

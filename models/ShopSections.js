@@ -8,16 +8,31 @@ const Schema = mongoose.Schema;
 //     linkUrl: "shop/hats",
 //   },
 
-const categoriesSchema = new Schema({
-  title: {
-    type: String,
-    lowercase: true,
+const categoriesSchema = new Schema(
+  {
+    title: {
+      type: String,
+      lowercase: true,
+    },
+    imageUrl: String,
+    linkUrl: {
+      type: String,
+      default: "shop/",
+    },
   },
-  imageUrl: String,
-  linkUrl: {
-    type: String,
-    default: "shop/",
-  },
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  }
+);
+
+categoriesSchema.virtual("category", {
+  ref: "Item",
+  foreignField: "category",
+  localField: "_id",
+});
+categoriesSchema.virtual("testData").get(function () {
+  return "rishav";
 });
 
 categoriesSchema.pre("save", function (next) {

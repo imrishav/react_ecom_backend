@@ -11,6 +11,7 @@ const itemSchema = new Schema(
       type: mongoose.Schema.ObjectId,
       ref: "Categories",
     },
+    categoryTitle: String,
   },
   {
     toJSON: { virtuals: true },

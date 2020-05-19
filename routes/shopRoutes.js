@@ -9,6 +9,8 @@ router
   .get(shopContoller.getAllCategories)
   .post(shopContoller.createCategrories);
 
+router.route("/:id").get(shopContoller.getCategoriesById);
+
 // router.post("/", shopContoller.createCategrories);
 
 module.exports = router;
