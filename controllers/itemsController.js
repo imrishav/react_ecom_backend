@@ -17,6 +17,22 @@ exports.getAllItems = async (req, res, next) => {
   }
 };
 
+exports.getItemById = async (req, res, next) => {
+  try {
+    const item = await Items.findById(req.params.id);
+    console.log(req.body);
+    res.status(201).json({
+      status: "success",
+      item,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "failure",
+      error: error,
+    });
+  }
+};
+
 exports.createItems = async (req, res, next) => {
   try {
     const newItem = await Items.create(req.body);

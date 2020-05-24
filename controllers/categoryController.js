@@ -1,4 +1,4 @@
-const Categories = require("../models/ShopSections");
+const Categories = require("../models/categoryModel");
 
 exports.createCategrories = async (req, res) => {
   const newCollection = await Categories.create({
@@ -25,11 +25,9 @@ exports.getAllCategories = async (req, res) => {
 
 exports.getCategoriesById = async (req, res) => {
   console.log(req.params);
-  const cateogry = await Categories.findById(req.params.id).populate(
-    "category"
-  );
+  const data = await Categories.findById(req.params.id).populate("category");
   res.json({
-    data: cateogry,
+    data,
     messgaeg: "success",
   });
 };

@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const morgan = require("morgan");
-const shopRoutes = require("./routes/shopRoutes");
+const categoryRoutes = require("./routes/categoryRoutes");
 const itemRoutes = require("./routes/itemsRoutes");
 
 mongoose
@@ -23,7 +23,7 @@ app.use(cors());
 
 app.use(morgan("dev"));
 
-app.use("/shop", shopRoutes);
+app.use("/categories", categoryRoutes);
 app.use("/items", itemRoutes);
 
 app.listen(3001, console.log("Backedn Running.."));

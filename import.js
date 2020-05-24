@@ -1,6 +1,6 @@
 const fs = require("fs");
 const mongoose = require("mongoose");
-const Categories = require("./models/ShopSections");
+const Categories = require("./models/categoryModel");
 
 mongoose
   .connect("mongodb://localhost:27017/ecom", {

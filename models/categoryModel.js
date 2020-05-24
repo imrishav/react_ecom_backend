@@ -1,13 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// {
-//     title: "hats",
-//     imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-//     id: 1,
-//     linkUrl: "shop/hats",
-//   },
-
 const categoriesSchema = new Schema(
   {
     title: {
