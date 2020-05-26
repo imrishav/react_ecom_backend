@@ -24,6 +24,7 @@ categoriesSchema.virtual("category", {
   foreignField: "category",
   localField: "_id",
 });
+
 categoriesSchema.virtual("testData").get(function () {
   return "rishav";
 });

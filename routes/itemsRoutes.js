@@ -2,10 +2,12 @@ const express = require("express");
 
 const router = express.Router();
 const Items = require("../models/itemsModel");
+const authController = require("../controllers/authController");
 const itemsController = require("../controllers/itemsController");
 
 router
   .route("/")
+  // .get(authController.protect, itemsController.getAllItems)
   .get(itemsController.getAllItems)
   .post(itemsController.createItems);
 
