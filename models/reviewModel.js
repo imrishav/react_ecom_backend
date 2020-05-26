@@ -7,6 +7,10 @@ const reviewSchema = new Schema(
       type: String,
       required: true,
     },
+    reviewContent: {
+      type: String,
+      required: true,
+    },
     rating: {
       type: Number,
       min: 1,
@@ -23,6 +27,10 @@ const reviewSchema = new Schema(
       type: mongoose.Schema.ObjectId,
       ref: "Item",
       required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
     },
   },
   {
